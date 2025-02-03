@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Web Solutions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #111; /* Dark background */
+            color: #eee; /* Light text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(to right, #444, #111);
+            color: gold;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222; /* Darker container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        h1, h2, h3 {
+            color: gold;
+        }
+
+        .service {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #555; /* Subtle border */
+            border-radius: 8px;
+            background: #333;
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+        }
+
+        .service:hover {
+            transform: translateY(-5px); /* Lift up on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-us {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ddd;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background: #444;
+            color: #eee;
+        }
+
+        button {
+            background: linear-gradient(to right, #d4af37, #ffd700); /* Gold gradient */
+            color: #111;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #c09a24, #e6ad00); /* Darker gold on hover */
+            transform: scale(1.05); /* Scale up slightly on hover */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: #111;
+            color: #eee;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        .thank-you {
+            color: #ffd700;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Secure Web Solutions</h1>
+        <p>Building Trust, One Website at a Time</p>
+    </header>
+
+    <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="service">
+            <h3>Secure Website Development</h3>
+            <p>We specialize in building robust and secure websites using the latest technologies (HTML, CSS, JavaScript). Our focus is on creating unique, high-performing websites tailored to your specific needs.</p>
+        </div>
+
+        <div class="service">
+            <h3>DNS and HTTPS Implementation</h3>
+            <p>We ensure your website is protected with proper DNS configuration and HTTPS encryption, safeguarding your data and building trust with your visitors.</p>
+        </div>
+
+        <div class="service">
+            <h3>Custom Code Development</h3>
+            <p>Need unique functionality? Our expert developers create custom HTML, CSS, and JavaScript code tailored to your specific requirements. We provide high-quality, maintainable code that integrates seamlessly with your website.</p>
+        </div>
+
+        <div class="service">
+            <h3>Website Creation and Publishing</h3>
+            <p>From design to deployment, we handle the entire website creation process. We'll build your website, publish it online, and provide two months of free maintenance after launch.</p>
+        </div>
+
+        <div class="contact-us">
+            <h2>Contact Us</h2>
+            <p>Ready to discuss your project? Get in touch with us today!</p>
+            <form id="contactForm" action="https://formspree.io/f/xpwqrojw" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div class="thank-you" style="display:none;">Thank you for your message! We will get back to you shortly.</div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Secure Web Solutions
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const thankYouMessage = document.querySelector('.thank-you');
+
+        form.addEventListener('submit', function(event) {
+            form.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'block';
+                thankYouMessage.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
