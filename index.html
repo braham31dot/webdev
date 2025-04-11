@@ -5,111 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Web Solutions</title>
     <style>
+        :root {
+            --bg-light: #f4f4f4;
+            --text-light: #111;
+            --bg-dark: #111;
+            --text-dark: #eee;
+            --accent: gold;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background: #111; /* Dark background */
-            color: #eee; /* Light text color */
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
 
-        header {
+        header, footer {
             background: linear-gradient(to right, #444, #111);
-            color: gold;
-            padding: 20px;
+            color: var(--accent);
             text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            padding: 20px;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: #222; /* Darker container */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px; /* Rounded corners */
-        }
-
-        h1, h2, h3 {
-            color: gold;
-        }
-
-        .service {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #555; /* Subtle border */
             border-radius: 8px;
-            background: #333;
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
-        .service:hover {
-            transform: translateY(-5px); /* Lift up on hover */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-us {
+        .service, .service-option {
             background: #333;
-            padding: 20px;
+            border: 1px solid #555;
+            padding: 15px;
             border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #ddd;
+        .service-option:hover {
+            background: #444;
+            transform: scale(1.02);
+        }
+
+        .service-option.selected {
+            background: #28a745;
         }
 
         input, textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #555;
+            border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            background: #444;
-            color: #eee;
         }
 
         button {
-            background: linear-gradient(to right, #d4af37, #ffd700); /* Gold gradient */
+            background: linear-gradient(to right, #d4af37, #ffd700);
             color: #111;
             padding: 12px 20px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-        }
-
-        button:hover {
-            background: linear-gradient(to right, #c09a24, #e6ad00); /* Darker gold on hover */
-            transform: scale(1.05); /* Scale up slightly on hover */
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        footer {
-            background: #111;
-            color: #eee;
-            text-align: center;
-            padding: 10px;
-            margin-top: auto;
         }
 
         .thank-you {
-            color: #ffd700;
+            color: var(--accent);
             text-align: center;
-            margin-top: 10px;
             font-size: 1.2em;
         }
+
+        a.privacy-link {
+            color: #aaa;
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Theme toggler */
+        @media (max-width: 768px) {
+            body {
+                background: var(--bg-dark);
+                color: var(--text-dark);
+            }
+            .container, .service, .service-option {
+                background: #222;
+            }
+        }
+
+        @media (min-width: 769px) {
+            body {
+                background: var(--bg-light);
+                color: var(--text-light);
+            }
+            .container, .service, .service-option {
+                background: #fff;
+            }
+        }
+
+        .idea-box {
+            background: #333;
+            border: 1px solid #555;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: white;
+        }
+        .idea-input {
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+
     </style>
 </head>
 <body>
-
     <header>
         <h1>Secure Web Solutions</h1>
         <p>Building Trust, One Website at a Time</p>
@@ -117,65 +140,182 @@
 
     <div class="container">
         <h2>Our Services</h2>
-
-        <div class="service">
-            <h3>Secure Website Development</h3>
-            <p>We specialize in building robust and secure websites using the latest technologies (HTML, CSS, JavaScript). Our focus is on creating unique, high-performing websites tailored to your specific needs.</p>
-        </div>
-
-        <div class="service">
-            <h3>DNS and HTTPS Implementation</h3>
-            <p>We ensure your website is protected with proper DNS configuration and HTTPS encryption, safeguarding your data and building trust with your visitors.</p>
-        </div>
-
-        <div class="service">
-            <h3>Custom Code Development</h3>
-            <p>Need unique functionality? Our expert developers create custom HTML, CSS, and JavaScript code tailored to your specific requirements. We provide high-quality, maintainable code that integrates seamlessly with your website.</p>
-        </div>
-
-        <div class="service">
-            <h3>Website Creation and Publishing</h3>
-            <p>From design to deployment, we handle the entire website creation process. We'll build your website, publish it online, and provide two months of free maintenance after launch.</p>
-        </div>
+        <div class="service">Web Development (HTML, CSS, JS)</div>
+        <div class="service">Domain & Hosting Setup</div>
+        <div class="service">Custom Code & App Logic</div>
+        <div class="service">Maintenance & Tech Support</div>
 
         <div class="contact-us">
-            <h2>Contact Us</h2>
-            <p>Ready to discuss your project? Get in touch with us today!</p>
-            <form id="contactForm" action="https://formspree.io/f/xpwqrojw" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <h2>Request Services</h2>
+            <p>Choose services to customize your request:</p>
+            <div class="service-selector">
+                <div class="service-option" data-service="htmlcss">HTML + CSS</div>
+                <div class="service-option" data-service="javascript">JavaScript</div>
+                <div class="service-option" data-service="webapp">Web App</div>
+                <div class="service-option" data-service="domain">Domain & Hosting</div>
+            </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <div id="questionFlow" style="display:none;"></div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
+            <form id="dynamicForm" action="https://formspree.io/f/mjkylvla" method="POST" style="display:none;">
+                <input type="hidden" name="selectedServices" id="selectedServices">
+                <div id="formFields"></div>
 
-                <button type="submit">Submit</button>
+                <label for="extraMessage">Other questions or comments:</label>
+                <textarea name="extraMessage" id="extraMessage"></textarea>
+
+                <label for="name">Your Name:</label>
+                <input type="text" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" required>
+
+                <button type="submit">Submit Request</button>
             </form>
-            <div class="thank-you" style="display:none;">Thank you for your message! We will get back to you shortly.</div>
+
+            <div class="thank-you" style="display:none;">Thanks! We'll get back to you shortly.</div>
         </div>
+
+        <div class="idea-box">
+            <h3>New to all this? Don't know where to start?</h3>
+            <p>Please let us know your vision. Share your ideas with us, and we'll help bring them to life.</p>
+            <textarea id="ideaInput" class="idea-input" placeholder="Enter your ideas here..."></textarea>
+            <button id="ideaSubmit">Submit Idea</button>
+        </div>
+
+        <a class="privacy-link" href="#" onclick="alert(policy); return false;">Privacy Policy</a>
     </div>
 
     <footer>
-        &copy; 2023 Secure Web Solutions
+        &copy; 2025 Secure Web Solutions
     </footer>
 
     <script>
-        const form = document.getElementById('contactForm');
-        const thankYouMessage = document.querySelector('.thank-you');
+        const form = document.getElementById('dynamicForm');
+        const questionFlow = document.getElementById('questionFlow');
+        const thankYou = document.querySelector('.thank-you');
+        const selectedServices = [];
+        const serviceOptions = document.querySelectorAll('.service-option');
+        const formFields = document.getElementById('formFields');
+        const policy = `Secure Web Solutions Privacy Policy:\n\nWe do not collect personal data beyond what is necessary to fulfill your service request. All information submitted through our form is securely processed via Formspree. We do not share your information with third parties.\n\nYou can contact us anytime to request data deletion or for privacy inquiries.`;
 
-        form.addEventListener('submit', function(event) {
-            form.style.display = 'none';
-            thankYouMessage.style.display = 'block';
+        serviceOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const service = option.dataset.service;
 
-            setTimeout(() => {
-                form.reset();
+                // Unselect other options
+                serviceOptions.forEach(otherOption => {
+                    if (otherOption !== option) {
+                        otherOption.classList.remove('selected');
+                        const index = selectedServices.indexOf(otherOption.dataset.service);
+                        if (index > -1) {
+                            selectedServices.splice(index, 1);
+                        }
+                    }
+                });
+
+                // Toggle current option
+                if (!selectedServices.includes(service)) {
+                    selectedServices.push(service);
+                    option.classList.add('selected');
+                } else {
+                    const index = selectedServices.indexOf(service);
+                    selectedServices.splice(index, 1);
+                    option.classList.remove('selected');
+                }
+
+                document.getElementById('selectedServices').value = selectedServices.join(', ');
+                questionFlow.innerHTML = generateQuestions(service);
+                questionFlow.style.display = 'block';
                 form.style.display = 'block';
-                thankYouMessage.style.display = 'none';
-            }, 5000);
+            });
+        });
+
+        function generateQuestions(service) {
+            if (service === 'htmlcss') {
+                return `
+                    <label>Preferred color theme?</label>
+                    <input type="text" name="htmlcss_theme" required>
+                    <label>Do you need responsive design?</label>
+                    <input type="text" name="htmlcss_responsive" required>
+                `;
+            } else if (service === 'javascript') {
+                return `
+                    <label>What kind of functions or logic?</label>
+                    <textarea name="js_features" required></textarea>
+                `;
+            } else if (service === 'webapp') {
+                return `
+                    <label>App purpose & features:</label>
+                    <textarea name="webapp_details" required></textarea>
+                `;
+            } else if (service === 'domain') {
+                return `
+                    <label>Do you want a domain?</label>
+                    <input type="text" name="need_domain" required>
+                    <label>If yes, what's the preferred domain name?</label>
+                    <input type="text" name="domain_name">
+                `;
+            } else {
+                return '';
+            }
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default so we can send via fetch
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    thankYou.style.display = 'block';
+                    form.reset();
+                    setTimeout(() => {
+                        thankYou.style.display = 'none';
+                        form.style.display = 'block';
+                    }, 5000);
+                } else {
+                    alert("Oops! Something went wrong. Please try again.");
+                }
+            }).catch(error => {
+                alert("Error sending form. Try again later.");
+                console.error(error);
+            });
+        });
+        document.getElementById('ideaSubmit').addEventListener('click', () => {
+            const idea = document.getElementById('ideaInput').value;
+            if (!idea) {
+                alert("Please enter your idea before submitting.");
+                return;
+            }
+
+            const ideaForm = new FormData();
+            ideaForm.append('idea', idea);
+
+            fetch("https://formspree.io/f/mjkylvla", {
+                method: 'POST',
+                body: ideaForm,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Idea submitted successfully!");
+                    document.getElementById('ideaInput').value = ''; // Clear the input
+                } else {
+                    alert("Oops! Something went wrong submitting your idea. Please try again.");
+                }
+            }).catch(error => {
+                alert("Error submitting idea. Try again later.");
+                console.error(error);
+            });
         });
     </script>
-
 </body>
 </html>
