@@ -3,7 +3,7 @@
   "short_name": "SecureWS",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a192f",
+  "background_color": "#ffffff",
   "theme_color": "#0a192f",
   "description": "Simple, clean and client-focused web dev support & services.",
   "icons": [
@@ -13,7 +13,7 @@
       "type": "image/png"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/image.png",
       "sizes": "512x512",
       "type": "image/png"
     }
